@@ -1,58 +1,96 @@
 <!doctype html>
 <title>{{ title }}</title>
-<!-- Latest compiled and minified CSS -->
-<link rel='stylesheet' 
+  <!-- Latest compiled and minified CSS -->
+  <link rel='stylesheet' 
       href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' 
       integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' 
       crossorigin='anonymous'>
 
-<link rel='stylesheet' 
+  <link rel='stylesheet' 
       href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' 
       integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp' 
       crossorigin='anonymous'>
 
-<!-- Latest compiled and minified JavaScript -->
-<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' 
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+  	      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  	      crossorigin="anonymous">
+  </script>
+
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' 
         integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' 
         crossorigin='anonymous'>
-</script>
+  </script>
+
+  <script type='text/javascript' 
+          src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js">
+  </script>
+
+  <script type='text/javascript' 
+          src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/extensions/export/bootstrap-table-export.min.js">
+  </script>
 
 <link rel='stylesheet' href='{{ url_for('static', filename='css/style.css') }}'>
 
 <body>
   <div class='container center-container'>
-  <h1>{{ title }}</h1>
     <div class='container inner-container'>
       <h3 style='text-align: center;'>Enter 5RMs</h3>
-    <form>
+    <form action="/" method="post">
+      {{ form.csrf_token }}
       <div class='form-group'>
-        <input type='text' 
+        <input type='number' 
+               step='2.5'
+               min='20'
                class='form-control form-control-lg' 
                id='squat'
-               placeholder='Squat'>
+               name='squat'
+               placeholder='Squat'
+               required>
       </div>
       <div class='form-group'>
-        <input type='text' 
+        <input type='number' 
+               step='2.5'
+               min='20'
                class='form-control form-control-lg' 
-               id='bench' placeholder='Bench Press'>
+               id='bench'
+               name='bench'
+               placeholder='Bench Press'
+               required>
       </div>
       <div class='form-group'>
-        <input type='text' 
+        <input type='number' 
+               step='2.5'
+               min='20'
                class='form-control form-control-lg' 
-               id='deadlift' placeholder='Deadlift'>
+               id='dl' 
+               name='dl'
+               placeholder='Deadlift'
+               required>
       </div>
       <div class='form-group'>
-        <input type='text' 
+        <input type='number' 
+               step='2.5'
+               min='20'
                class='form-control form-control-lg' 
-               id='shoulderpress' placeholder='Shoulder Press'>
+               id='ohp'
+               name='ohp'
+               placeholder='OHP'
+               required>
+      </div>
+      <div class='form-group'>
+        <input type='number' 
+               step='2.5'
+               min='20'
+               class='form-control form-control-lg' 
+               id='row'
+               name='row'
+               placeholder='Row'
+               required>
       </div>
       <button type='submit'
               class='btn btn-white btn-lg'>
-                madcow
-      </button>
-      <button type='submit'
-              class='btn btn-white btn-lg'>
-                kiwi
+                Madcow
       </button>
     </form>
     </div>
