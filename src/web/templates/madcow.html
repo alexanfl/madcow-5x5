@@ -41,13 +41,21 @@
   <script type='text/javascript' src='{{ url_for("static", filename="js/prog.js") }}'></script>
 </head>
 <body>
+  <div class="container">                                                      
+    <ul class="container nav nav-tabs nav-smaller" style="float: left;">     
+      <li class="active"><a id="day1" data-toggle="tab" href="#mon">Monday</a></li>
+      <li><a id="day2" data-toggle="tab" href="#wed">Wednesday</a></li>
+      <li><a id="day3" data-toggle="tab" href="#bestill">Friday</a></li>
+    <ul>                                                                    
+  </div>                                                                       
+</div>  
   <div class='container center-table-container'>
     <p style="text-align: center;"><b>Week</b></p>
     <div class="row">
-      <div class="col-md-1 col-xs-12 container6">
+      <div class="col-md-1 col-xs-2 container6">
         <p><b>Squat</b></p>
       </div>
-      <div class="col-md-11 col-xs-12">
+      <div class="col-md-11 col-xs-10">
         <table
           id="squat_primary"
           data-classes="table bootstrap-table borderless table-hover"
@@ -79,10 +87,10 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-1 col-xs-12 container6">
+      <div class="col-md-1 col-xs-2 container6">
         <p><b>Bench</b></p>
       </div>
-      <div class="col-md-11 col-xs-12">
+      <div class="col-md-11 col-xs-10">
         <table
           id="bench_primary"
           data-classes="table bootstrap-table borderless table-hover"
@@ -114,10 +122,10 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-1 col-xs-12 container6">
+      <div class="col-md-1 col-xs-2 container6">
             <p><b>Row</b></p>
       </div>
-      <div class="col-md-11 col-xs-12">
+      <div class="col-md-11 col-xs-10">
         <table
           id="row_primary"
           data-classes="table bootstrap-table borderless table-hover"
