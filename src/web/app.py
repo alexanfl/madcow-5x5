@@ -42,14 +42,26 @@ def get_primary_day(rm5, exercise_type):
     return weights_and_reps
 
 
-def get_secondary_day(starting_rm5, exercise_type):
-    weights_and_reps = get_primary_day(starting_rm5, exercise_type)
+def get_secondary_day(rm5, exercise_type):
+    weights_and_reps = get_primary_day(rm5, exercise_type)
 
     weights_and_reps[0][-1] += 2.5
-    weights_and_reps.append(weights[0][2])
+    weights_and_reps[0].append(weights_and_reps[0][2])
 
     weights_and_reps[1][-1] = 3
-    weights_and_reps.append(8)
+    weights_and_reps[1].append(8)
+
+    return weights_and_reps
+
+
+def get_tertiary_day(rm5, exercise_type):
+    weights_and_reps = get_primary_day(rm5, exercise_type)
+
+    weights_and_reps[0].pop()
+    weights_and_reps[1].pop()
+
+    weights_and_reps[0][-1] = weights_and_reps[0][-2]
+    weights_and_reps[1][-1] = weights_and_reps[1][-2]
 
     return weights_and_reps
 
@@ -89,6 +101,14 @@ def get_madcow(rm_5s):
     program["squat_primary"] = get_12weeks(get_primary_day(squat_5rm, 1))
     program["bench_primary"] = get_12weeks(get_primary_day(bench_5rm, 1))
     program["row_primary"] = get_12weeks(get_primary_day(row_5rm, 1))
+
+    program["dl_primary"] = get_12weeks(get_primary_day(dl_5rm, 0))
+    program["ohp_primary"] = get_12weeks(get_primary_day(ohp_5rm, 0))
+    program["squat_tertiary"] = get_12weeks(get_tertiary_day(squat_5rm, 1))
+
+    program["squat_secondary"] = get_12weeks(get_secondary_day(squat_5rm, 1))
+    program["bench_secondary"] = get_12weeks(get_secondary_day(bench_5rm, 1))
+    program["row_secondary"] = get_12weeks(get_secondary_day(row_5rm, 1))
 
     return program
 
