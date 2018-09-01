@@ -1,6 +1,6 @@
 <!doctype html>
 <title>{{ title }}</title>
-  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='kiwi.png') }}">
   <!-- Latest compiled and minified CSS -->
   <link rel='stylesheet' 
       href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' 
@@ -11,7 +11,6 @@
       href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' 
       integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp' 
       crossorigin='anonymous'>
-
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -31,14 +30,14 @@
   <script type='text/javascript' 
           src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/extensions/export/bootstrap-table-export.min.js">
   </script>
-  
+
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css'>
 
   <link rel='stylesheet' href='{{ url_for('static', filename='css/style.css') }}'>
 
-<body>
+<body class="kiwi">
   <div class='container center-container'>
-    <div class='container inner-container animated fadeIn slower'>
+    <div class='container inner-container'>
       <h3 style='text-align: center;'>Enter 5RMs</h3>
     <form action="/" method="post">
       {{ form.csrf_token }}

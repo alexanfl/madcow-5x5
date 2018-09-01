@@ -1,7 +1,7 @@
 <!doctype html>
 <head>
   <title>{{ title }}</title>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.png') }}">
+    <link rel='shortcut icon' href='{{ url_for("static", filename="favicon.png") }}'>
   <!-- Latest compiled and minified CSS -->
   <link rel='stylesheet' 
       href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' 
@@ -14,9 +14,9 @@
       crossorigin='anonymous'>
 
   <!-- Latest compiled and minified JavaScript -->
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
-  	      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  	      crossorigin="anonymous">
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'
+  	      integrity='sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44='
+  	      crossorigin='anonymous'>
   </script>
 
   <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' 
@@ -25,15 +25,16 @@
   </script>
 
   <script type='text/javascript' 
-          src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js">
+          src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js'>
   </script>
 
   <script type='text/javascript' 
-          src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/extensions/export/bootstrap-table-export.min.js">
+          src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/extensions/export/bootstrap-table-export.min.js'>
   </script>
 
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css'>
 
-  <link rel='stylesheet' href='{{ url_for('static', filename='css/style.css') }}'>
+  <link rel='stylesheet' href='{{ url_for("static", filename="css/style.css") }}'>
 
   <script type='text/javascript'>
     const data = {{data|tojson}};
@@ -43,333 +44,337 @@
   <script type='text/javascript' src='{{ url_for("static", filename="js/prog.js") }}'></script>
 </head>
 <body>
-  <div class='container center-table-container'>
-    <div class="container" style="text-align: center;">                                                      
-      <ul class="container nav nav-tabs nav-smaller" style="padding: 25px;">     
-        <li class="active"><a id="day1_tab" data-toggle="tab" href="#day1">Monday</a></li>
-        <li><a id="day2_tab" data-toggle="tab" href="#day2">Wednesday</a></li>
-        <li><a id="day3_tab" data-toggle="tab" href="#day3">Friday</a></li>
-      </ul>                                                                    
+  <div class='container'>
+    <div class='container animated fadeInDown faster' style='text-align: center;'>                                                      
+      <ul class='container nav nav-tabs nav-smaller' style='padding: 25px;'>     
+        <li class='active'><a id='day1_tab' data-toggle='tab' href='#day1'>Monday</a></li>
+        <li><a id='day2_tab' data-toggle='tab' href='#day2'>Wednesday</a></li>
+        <li><a id='day3_tab' data-toggle='tab' href='#day3'>Friday</a></li>
+        <li class='pull-right'>
+          <a id='clear_cookies' title='Clear' href='/clear'>
+            <span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span>
+          </a>
+      </ul>
     </div>                                                                       
-    <div class="tab-content">
-      <div id="day1" class="tab-pane fade in active">
-        <p style="text-align: center;"><b>Week</b></p>
-        <div class="row">
-          <div class="col-md-1 col-xs-2 container6">
+    <div class='tab-content animated fadeInUp'>
+      <div id='day1' class='tab-pane fade in active'>
+        <p style='text-align: center;'><b>Week</b></p>
+        <div class='row'>
+          <div class='col-md-1 col-xs-2 container6'>
             <p><b>Squat</b></p>
           </div>
-          <div class="col-md-11 col-xs-10">
+          <div class='col-md-11 col-xs-10'>
             <table
-              id="squat_primary"
-              data-classes="table bootstrap-table borderless table-hover"
-              data-toolbar="#toolbar"
-              data-search="false"
-              data-striped="false"
-              data-show-columns="false"
-              data-align="right"
-              data-halign="right"
-              data-pagination="true">
+              id='squat_primary'
+              data-classes='table bootstrap-table borderless table-hover'
+              data-toolbar='#toolbar'
+              data-search='false'
+              data-striped='false'
+              data-show-columns='false'
+              data-align='right'
+              data-halign='right'
+              data-pagination='true'>
               <thead>
                 <tr>
-                  <th data-field="reps" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week1" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week2" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week3" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week4" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week5" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week6" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week7" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week8" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week9" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week10" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week11" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week12" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
+                  <th data-field='reps' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week1' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week2' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week3' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week4' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week5' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week6' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week7' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week8' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week9' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week10' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week11' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week12' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
                 </tr>
               </thead>
             </table>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-1 col-xs-2 container6">
+        <div class='row'>
+          <div class='col-md-1 col-xs-2 container6'>
             <p><b>Bench</b></p>
           </div>
-          <div class="col-md-11 col-xs-10">
+          <div class='col-md-11 col-xs-10'>
             <table
-              id="bench_primary"
-              data-classes="table bootstrap-table borderless table-hover"
-              data-toolbar="#toolbar"
-              data-search="false"
-              data-striped="false"
-              data-show-columns="false"
-              data-align="right"
-              data-halign="right"
-              data-pagination="true">
+              id='bench_primary'
+              data-classes='table bootstrap-table borderless table-hover'
+              data-toolbar='#toolbar'
+              data-search='false'
+              data-striped='false'
+              data-show-columns='false'
+              data-align='right'
+              data-halign='right'
+              data-pagination='true'>
               <thead>
                 <tr>
-                  <th data-field="reps" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week1" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week2" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week3" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week4" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week5" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week6" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week7" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week8" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week9" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week10" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week11" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week12" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
+                  <th data-field='reps' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week1' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week2' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week3' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week4' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week5' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week6' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week7' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week8' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week9' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week10' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week11' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week12' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
                 </tr>
               </thead>
             </table>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-1 col-xs-2 container6">
+        <div class='row'>
+          <div class='col-md-1 col-xs-2 container6'>
                 <p><b>Row</b></p>
           </div>
-          <div class="col-md-11 col-xs-10">
+          <div class='col-md-11 col-xs-10'>
             <table
-              id="row_primary"
-              data-classes="table bootstrap-table borderless table-hover"
-              data-toolbar="#toolbar"
-              data-search="false"
-              data-striped="false"
-              data-show-columns="false"
-              data-align="right"
-              data-halign="right"
-              data-pagination="true">
+              id='row_primary'
+              data-classes='table bootstrap-table borderless table-hover'
+              data-toolbar='#toolbar'
+              data-search='false'
+              data-striped='false'
+              data-show-columns='false'
+              data-align='right'
+              data-halign='right'
+              data-pagination='true'>
               <thead>
                 <tr>
-                  <th data-field="reps" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week1" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week2" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week3" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week4" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week5" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week6" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week7" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week8" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week9" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week10" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week11" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week12" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
+                  <th data-field='reps' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week1' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week2' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week3' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week4' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week5' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week6' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week7' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week8' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week9' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week10' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week11' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week12' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
                 </tr>
               </thead>
             </table>
           </div>
         </div>
       </div>
-      <div id="day2" class="tab-pane fade">
-        <p style="text-align: center;"><b>Week</b></p>
-        <div class="row">
-          <div class="col-md-1 col-xs-2 container6">
+      <div id='day2' class='tab-pane fade'>
+        <p style='text-align: center;'><b>Week</b></p>
+        <div class='row'>
+          <div class='col-md-1 col-xs-2 container6'>
             <p><b>Squat</b></p>
           </div>
-          <div class="col-md-11 col-xs-10">
+          <div class='col-md-11 col-xs-10'>
             <table
-              id="squat_tertiary"
-              data-classes="table bootstrap-table borderless table-hover"
-              data-toolbar="#toolbar"
-              data-search="false"
-              data-striped="false"
-              data-show-columns="false"
-              data-align="right"
-              data-halign="right"
-              data-pagination="true">
+              id='squat_tertiary'
+              data-classes='table bootstrap-table borderless table-hover'
+              data-toolbar='#toolbar'
+              data-search='false'
+              data-striped='false'
+              data-show-columns='false'
+              data-align='right'
+              data-halign='right'
+              data-pagination='true'>
               <thead>
                 <tr>
-                  <th data-field="reps" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week1" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week2" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week3" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week4" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week5" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week6" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week7" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week8" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week9" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week10" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week11" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week12" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
+                  <th data-field='reps' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week1' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week2' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week3' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week4' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week5' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week6' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week7' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week8' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week9' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week10' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week11' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week12' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
                 </tr>
               </thead>
             </table>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-1 col-xs-2 container6">
+        <div class='row'>
+          <div class='col-md-1 col-xs-2 container6'>
             <p><b>Deadlift</b></p>
           </div>
-          <div class="col-md-11 col-xs-10">
+          <div class='col-md-11 col-xs-10'>
             <table
-              id="dl_primary"
-              data-classes="table bootstrap-table borderless table-hover"
-              data-toolbar="#toolbar"
-              data-search="false"
-              data-striped="false"
-              data-show-columns="false"
-              data-align="right"
-              data-halign="right"
-              data-pagination="true">
+              id='dl_primary'
+              data-classes='table bootstrap-table borderless table-hover'
+              data-toolbar='#toolbar'
+              data-search='false'
+              data-striped='false'
+              data-show-columns='false'
+              data-align='right'
+              data-halign='right'
+              data-pagination='true'>
               <thead>
                 <tr>
-                  <th data-field="reps" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week1" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week2" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week3" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week4" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week5" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week6" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week7" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week8" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week9" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week10" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week11" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week12" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
+                  <th data-field='reps' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week1' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week2' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week3' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week4' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week5' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week6' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week7' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week8' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week9' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week10' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week11' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week12' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
                 </tr>
               </thead>
             </table>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-1 col-xs-2 container6">
+        <div class='row'>
+          <div class='col-md-1 col-xs-2 container6'>
                 <p><b>OHP</b></p>
           </div>
-          <div class="col-md-11 col-xs-10">
+          <div class='col-md-11 col-xs-10'>
             <table
-              id="ohp_primary"
-              data-classes="table bootstrap-table borderless table-hover"
-              data-toolbar="#toolbar"
-              data-search="false"
-              data-striped="false"
-              data-show-columns="false"
-              data-align="right"
-              data-halign="right"
-              data-pagination="true">
+              id='ohp_primary'
+              data-classes='table bootstrap-table borderless table-hover'
+              data-toolbar='#toolbar'
+              data-search='false'
+              data-striped='false'
+              data-show-columns='false'
+              data-align='right'
+              data-halign='right'
+              data-pagination='true'>
               <thead>
                 <tr>
-                  <th data-field="reps" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week1" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week2" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week3" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week4" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week5" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week6" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week7" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week8" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week9" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week10" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week11" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week12" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
+                  <th data-field='reps' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week1' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week2' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week3' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week4' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week5' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week6' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week7' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week8' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week9' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week10' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week11' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week12' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
                 </tr>
               </thead>
             </table>
           </div>
         </div>
       </div>
-      <div id="day3" class="tab-pane fade">
-        <p style="text-align: center;"><b>Week</b></p>
-        <div class="row">
-          <div class="col-md-1 col-xs-2 container6">
+      <div id='day3' class='tab-pane fade'>
+        <p style='text-align: center;'><b>Week</b></p>
+        <div class='row'>
+          <div class='col-md-1 col-xs-2 container6'>
             <p><b>Squat</b></p>
           </div>
-          <div class="col-md-11 col-xs-10">
+          <div class='col-md-11 col-xs-10'>
             <table
-              id="squat_secondary"
-              data-classes="table bootstrap-table borderless table-hover"
-              data-toolbar="#toolbar"
-              data-search="false"
-              data-striped="false"
-              data-show-columns="false"
-              data-align="right"
-              data-halign="right"
-              data-pagination="true">
+              id='squat_secondary'
+              data-classes='table bootstrap-table borderless table-hover'
+              data-toolbar='#toolbar'
+              data-search='false'
+              data-striped='false'
+              data-show-columns='false'
+              data-align='right'
+              data-halign='right'
+              data-pagination='true'>
               <thead>
                 <tr>
-                  <th data-field="reps" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week1" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week2" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week3" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week4" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week5" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week6" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week7" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week8" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week9" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week10" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week11" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week12" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
+                  <th data-field='reps' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week1' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week2' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week3' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week4' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week5' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week6' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week7' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week8' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week9' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week10' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week11' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week12' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
                 </tr>
               </thead>
             </table>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-1 col-xs-2 container6">
+        <div class='row'>
+          <div class='col-md-1 col-xs-2 container6'>
             <p><b>Bench</b></p>
           </div>
-          <div class="col-md-11 col-xs-10">
+          <div class='col-md-11 col-xs-10'>
             <table
-              id="bench_secondary"
-              data-classes="table bootstrap-table borderless table-hover"
-              data-toolbar="#toolbar"
-              data-search="false"
-              data-striped="false"
-              data-show-columns="false"
-              data-align="right"
-              data-halign="right"
-              data-pagination="true">
+              id='bench_secondary'
+              data-classes='table bootstrap-table borderless table-hover'
+              data-toolbar='#toolbar'
+              data-search='false'
+              data-striped='false'
+              data-show-columns='false'
+              data-align='right'
+              data-halign='right'
+              data-pagination='true'>
               <thead>
                 <tr>
-                  <th data-field="reps" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week1" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week2" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week3" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week4" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week5" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week6" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week7" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week8" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week9" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week10" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week11" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week12" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
+                  <th data-field='reps' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week1' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week2' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week3' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week4' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week5' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week6' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week7' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week8' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week9' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week10' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week11' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week12' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
                 </tr>
               </thead>
             </table>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-1 col-xs-2 container6">
+        <div class='row'>
+          <div class='col-md-1 col-xs-2 container6'>
                 <p><b>Row</b></p>
           </div>
-          <div class="col-md-11 col-xs-10">
+          <div class='col-md-11 col-xs-10'>
             <table
-              id="row_secondary"
-              data-classes="table bootstrap-table borderless table-hover"
-              data-toolbar="#toolbar"
-              data-search="false"
-              data-striped="false"
-              data-show-columns="false"
-              data-align="right"
-              data-halign="right"
-              data-pagination="true">
+              id='row_secondary'
+              data-classes='table bootstrap-table borderless table-hover'
+              data-toolbar='#toolbar'
+              data-search='false'
+              data-striped='false'
+              data-show-columns='false'
+              data-align='right'
+              data-halign='right'
+              data-pagination='true'>
               <thead>
                 <tr>
-                  <th data-field="reps" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week1" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week2" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week3" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week4" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week5" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week6" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week7" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week8" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week9" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week10" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week11" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
-                  <th data-field="week12" data-align="right" data-halign="right" data-formatter="dataFormatter"></th>
+                  <th data-field='reps' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week1' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week2' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week3' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week4' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week5' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week6' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week7' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week8' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week9' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week10' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week11' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
+                  <th data-field='week12' data-align='right' data-halign='right' data-formatter='dataFormatter'></th>
                 </tr>
               </thead>
             </table>

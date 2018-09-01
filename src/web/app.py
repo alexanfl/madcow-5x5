@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request, flash, make_response
+from flask import Flask, render_template, jsonify, request, flash, make_response, redirect, url_for
 from flask_wtf import FlaskForm
 from wtforms import DecimalField
 from wtforms import validators
@@ -116,8 +116,7 @@ def get_madcow(rm_5s):
 def set_cookies_from_dict(rm_5s):
     c = get_columns()
     p = get_madcow(rm_5s)
-    resp = make_response(render_template('madcow.html', data=p, columns=c))
-
+    resp = make_response(render_template("madcow.html", data=p, columns=c))
     resp.set_cookie("squat", rm_5s["squat"])
     resp.set_cookie("bench", rm_5s["bench"])
     resp.set_cookie("dl", rm_5s["dl"])
@@ -135,20 +134,21 @@ def get_cookies_as_dict():
                  )
 
     for key, val in rm_5s.items():
-        if val == None:
+        if val == None or val == "":
             return None
         else:
             return rm_5s
 
 
-@app.route('/', methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def index():
     rm_5s = get_cookies_as_dict()
+
     if rm_5s:
         c = get_columns()
         p = get_madcow(rm_5s)
 
-        return render_template('madcow.html', data=p, columns=c)
+        return render_template("madcow.html", data=p, columns=c)
     else:
         print("No cookies stored.")
 
@@ -161,12 +161,30 @@ def index():
                      ohp=request.form["ohp"],
                      row=request.form["row"]
                      )
-
     if form.validate_on_submit():
         resp = set_cookies_from_dict(rm_5s)
         return resp
-
     else:
         print(form.errors)
 
-    return render_template('index.html', title='5x5', form=form)
+    return render_template("index.html", title="5x5", form=form)
+
+
+@app.route("/clear", methods=["GET", "POST"])
+def clear_cookies():
+    form = RMForm(request.form)
+
+    if request.method == "POST":
+        rm_5s = dict(squat=request.form["squat"],
+                     bench=request.form["bench"],
+                     dl=request.form["dl"],
+                     ohp=request.form["ohp"],
+                     row=request.form["row"]
+                     )
+    if form.validate_on_submit():
+        resp = set_cookies_from_dict(rm_5s)
+        return resp
+    else:
+        print(form.errors)
+
+    return render_template("index_clear.html", title="5x5", form=form)
