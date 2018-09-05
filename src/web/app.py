@@ -2,6 +2,7 @@ from flask import Flask, render_template, jsonify, request
 from flask import flash, make_response, redirect, url_for
 from flask_wtf import FlaskForm
 from wtforms import DecimalField, validators
+from flask_login import LoginManager
 
 app = Flask(__name__)
 app.secret_key = "wtf is this"
@@ -9,6 +10,10 @@ app.secret_key = "wtf is this"
 WEIGHT_INCREMENT = 0.125
 WEIGHT_PRECISION = 2.5
 NUM_WEEKS = 12
+
+login_manager = LoginManager()
+
+
 
 class RMForm(FlaskForm):
     squat = DecimalField("squat", validators=[validators.DataRequired()])
@@ -139,6 +144,11 @@ def get_cookies_as_dict():
             return None
         else:
             return rm_5s
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.get(user_id)
 
 
 @app.route("/", methods=["GET", "POST"])
