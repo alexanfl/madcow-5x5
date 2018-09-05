@@ -1,7 +1,7 @@
-from flask import Flask, render_template, jsonify, request, flash, make_response, redirect, url_for
+from flask import Flask, render_template, jsonify, request
+from flask import flash, make_response, redirect, url_for
 from flask_wtf import FlaskForm
-from wtforms import DecimalField
-from wtforms import validators
+from wtforms import DecimalField, validators
 
 app = Flask(__name__)
 app.secret_key = "wtf is this"
@@ -124,6 +124,7 @@ def set_cookies_from_dict(rm_5s):
     resp.set_cookie("row", rm_5s["row"])
 
     return resp
+
 
 def get_cookies_as_dict():
     rm_5s = dict(squat=request.cookies.get("squat"),
